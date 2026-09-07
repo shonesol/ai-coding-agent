@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  color: #f0e6d4;
+  background-color: #060b18;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #060b18 0%, #0a1224 40%, #0f1a30 100%);
+  background-attachment: fixed;
+}
+
+/* Elegant scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #243b5c;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c4a97c;
+}
+
+/* Subtle noise texture overlay */
+.bg-noise {
+  position: relative;
+}
+.bg-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Soft glow for primary buttons */
+.btn-glow {
+  box-shadow: 0 0 24px -4px rgba(212, 176, 90, 0.35);
+  transition: all 0.25s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 32px -2px rgba(212, 176, 90, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Message bubble animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.msg-enter {
+  animation: fadeInUp 0.35s ease-out forwards;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(15, 26, 48, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(196, 169, 124, 0.12);
+}
