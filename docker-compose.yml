@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    # Environment variables are baked in at build time for Vite.
+    # For runtime secrets use Cloud Functions / Firebase.
